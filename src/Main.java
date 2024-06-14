@@ -8,11 +8,13 @@ public class Main {
         String characters = "FollowMilindMehta";
         List<Integer> numbers = List.of(5,8,2,13,42,56,24,36);
         String[] strings = {"Milind", "Mehta", "follow", "java8", "Microservice", "springboot"};
+        int[] numberList = {1,2,11,21,31,42,56,23,16};
         var charCount = countCharacters(characters);
         System.out.println(findDuplicates(characters));
         findFirstUniqueCharacter(characters);
         System.out.println(findTheSecondLargestElement(numbers));
         System.out.println(findTheLongestStringInTheArray(strings));
+        System.out.println(findingElementsStartingWithOne(numberList));
 
     }
 
@@ -62,6 +64,14 @@ public class Main {
                 .orElse(null);
     }
 
+    public static List<String> findingElementsStartingWithOne(int[] numbers){
+        return Arrays.stream(numbers)
+                .boxed()
+                .map(String::valueOf)
+                .filter(n -> n.startsWith("1"))
+                .toList();
+
+    }
 
 
 
