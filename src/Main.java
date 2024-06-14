@@ -1,8 +1,5 @@
 
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -10,10 +7,13 @@ public class Main {
     public static void main(String[] args){
         String characters = "FollowMilindMehta";
         List<Integer> numbers = List.of(5,8,2,13,42,56,24,36);
+        String[] strings = {"Milind", "Mehta", "follow", "java8", "Microservice", "springboot"};
         var charCount = countCharacters(characters);
         System.out.println(findDuplicates(characters));
         findFirstUniqueCharacter(characters);
         System.out.println(findTheSecondLargestElement(numbers));
+        System.out.println(findTheLongestStringInTheArray(strings));
+
     }
 
     public static Map<Character, Long> countCharacters(String str){
@@ -54,6 +54,12 @@ public class Main {
                 .findFirst()
                 .orElse(null);
 
+    }
+
+    public static String findTheLongestStringInTheArray(String[] strings){
+        return Arrays.stream(strings)
+                .reduce((str1, str2) -> str1.length() > str2.length() ? str1 : str2)
+                .orElse(null);
     }
 
 
